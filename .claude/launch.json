@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "quade-site", "runtimeExecutable": "node", "runtimeArgs": ["_work/serve.js"], "port": 5577 }
+  ]
+}

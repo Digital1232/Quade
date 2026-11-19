@@ -1,0 +1,458 @@
+/* =========================================================
+   QUADE Engineering Services — custom stylesheet
+   (rebuilt from the WordPress/Divi site, no framework)
+   ========================================================= */
+
+/* The heading font "Sage" was referenced by the old site but its file
+   (/fonts/sage.otf) never existed, so browsers fell back to the default
+   serif. If you add the real font file, drop it in /assets/fonts/ and
+   un-comment this block.
+@font-face{font-family:Sage;src:url(/assets/fonts/sage.otf);font-weight:400;font-display:swap}
+*/
+
+:root{
+  --navy:#001d3e;
+  --navy-2:#011e3f;
+  --blue:#2083f6;
+  --link:#0084ff;
+  --text:#666;
+  --dark:#333;
+  --serif:'Sage','Times New Roman',Times,serif;
+  --poppins:'Poppins',Helvetica,Arial,Lucida,sans-serif;
+  --header-h:90px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--text);font:500 14px/1.7em 'Open Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img,video,iframe{max-width:100%;vertical-align:middle}
+img{height:auto;border:0}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--link)}
+p{margin:0;padding-bottom:1em}
+p:last-of-type{padding-bottom:0}
+strong{font-weight:700}
+h1,h2,h3,h4,h5,h6{color:var(--dark);margin:0;padding-bottom:10px;line-height:1em;font-weight:500}
+h1{font-size:30px}h2{font-size:26px}h3{font-size:22px}h4{font-size:18px}
+ul{margin:0;padding:0 0 23px 1em;line-height:26px;list-style-type:disc}
+ol{margin:0;padding:0 0 23px 0;line-height:26px;list-style-position:inside}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Page container / fixed header ---------- */
+#page-container{padding-top:var(--header-h);overflow-x:hidden}
+
+#main-header{position:fixed;top:0;left:0;right:0;z-index:99999;background:#fff;
+  font-family:var(--poppins);transition:box-shadow .4s ease-in-out}
+#main-header.is-fixed{box-shadow:0 0 7px rgba(0,0,0,.1)}
+#main-header .container{max-width:1240px;width:100%;margin:0 auto;position:relative;
+  display:flex;align-items:center;justify-content:space-between;height:var(--header-h);transition:height .4s ease-in-out}
+#main-header.is-fixed .container{height:64px}
+.logo_container{display:flex;align-items:center;height:100%}
+.logo_container img{max-height:81px;width:auto;transition:max-height .4s ease-in-out}
+#main-header.is-fixed .logo_container img{max-height:57px}
+
+#top-menu{display:flex;align-items:center;list-style:none;margin:0;padding:0;line-height:1}
+#top-menu li{padding-right:22px}
+#top-menu li:last-child{padding-right:0}
+#top-menu a{display:block;color:var(--navy);font-size:14px;font-weight:600;text-transform:uppercase;transition:opacity .4s,color .4s}
+#top-menu a:hover{opacity:.7}
+#top-menu li.current>a{color:var(--blue)}
+#top-menu li.btn a{padding:10px 15px;background:var(--blue);color:#fff}
+#top-menu li.btn.current>a{color:#fff}
+
+.mobile-toggle{display:none;background:none;border:0;padding:0;cursor:pointer;width:32px;height:32px;position:relative}
+.mobile-toggle span,.mobile-toggle span::before,.mobile-toggle span::after{content:"";position:absolute;left:4px;width:24px;height:3px;background:var(--link);transition:.3s}
+.mobile-toggle span{top:15px}
+.mobile-toggle span::before{top:-8px;left:0}
+.mobile-toggle span::after{top:8px;left:0}
+.menu-open .mobile-toggle span{background:transparent}
+.menu-open .mobile-toggle span::before{top:0;transform:rotate(45deg)}
+.menu-open .mobile-toggle span::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- Generic layout (sections / rows / columns) ---------- */
+.section{position:relative;padding:54px 0;background-color:#fff;background-repeat:no-repeat;background-position:50% 50%;background-size:cover;max-width:1920px;margin:0 auto}
+.row{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:27px 0;display:flex;gap:0 5.5%}
+.row.narrow{max-width:1080px}
+.row.full{max-width:1920px}
+.row.no-gap{gap:0}
+.row.v-center{align-items:center}
+.col{position:relative;min-width:0}
+.c-1{width:100%}
+.c-1-2{width:47.25%}
+.c-1-3{width:29.6667%}
+.c-2-3{width:64.833%}
+.c-1-4{width:20.875%}
+.c-3-4{width:73.625%}
+.c-2-5{width:36.7%}
+.c-3-5{width:57.8%}
+.no-gap>.c-1-2{width:50%}
+.mod{position:relative}
+.mod:not(:last-child){margin-bottom:34px}
+.narrow .mod:not(:last-child){margin-bottom:30px}
+.mod img{display:block}
+.only-mobile{display:none!important}
+
+@media (max-width:1300px){
+  .row{width:calc(100% - 30px)}
+}
+
+/* ---------- Shared type helpers (from the old custom CSS) ---------- */
+.sage-title{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.2;color:var(--navy)}
+.head_sage{font-family:var(--serif);font-size:64px;line-height:1.2;text-align:center;color:var(--navy);font-weight:600}
+.contact_header{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.2;color:var(--navy-2);margin-bottom:20px}
+.contact_content{color:var(--dark);padding-right:30%;font-size:18px;font-family:var(--poppins);line-height:1.4em}
+.white_text .contact_header,.white_text .contact_content,.white_text{color:#fff}
+.head_center{text-align:center}
+.strong_pop{font-weight:700;font-size:22px}
+.pop_head{font-weight:700}
+
+.app_term{margin-top:2%;font-family:var(--poppins)}
+.app_term a{font-size:16px;color:#243f93;text-decoration:underline}
+.app_term img{display:inline-block!important;width:18px;margin-left:5px;position:relative;top:2px;transform:rotate(-30deg);cursor:pointer;transition:.3s ease-in}
+.app_term:hover img{transform:rotate(0)}
+.app_term.light a{color:#fff;font-size:22px}
+.app_term.light img{filter:brightness(0) invert(1)}
+
+/* ---------- Slider ---------- */
+.slider{position:relative;overflow:hidden;width:100%;touch-action:pan-y;user-select:none}
+.slider .track{display:flex;transition:transform .6s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.slider .slide{flex:0 0 100%;overflow:hidden}
+.slider .slide img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.slider.ratio-340 .slide{aspect-ratio:1240/340}
+.slider.ratio-600 .slide{aspect-ratio:1240/600}
+.slider .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;opacity:0;transition:opacity .3s}
+.slider:hover .dots,.slider:hover .arrow{opacity:1}
+.slider .dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:rgba(255,255,255,.55);box-shadow:0 0 2px rgba(0,0,0,.4);cursor:pointer}
+.slider .dots button.active{background:#fff}
+.slider .arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.85);cursor:pointer;opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.slider .arrow::before{content:"";width:10px;height:10px;border-top:2px solid #333;border-left:2px solid #333}
+.slider .arrow.prev{left:15px}.slider .arrow.prev::before{transform:translateX(2px) rotate(-45deg)}
+.slider .arrow.next{right:15px}.slider .arrow.next::before{transform:translateX(-2px) rotate(135deg)}
+
+/* ---------- Footer / contact section ---------- */
+#contact_us{padding-top:20px;margin-top:5px}
+.footer-contact .contact_content{padding-right:30%}
+.form-grid{display:flex;flex-wrap:wrap;justify-content:space-between}
+.form-grid .field{width:100%;margin:0 0 3%;padding:0}
+.form-grid .field.half{width:49%}
+.form-grid label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;font:400 14px 'Open Sans',Arial,sans-serif;color:var(--dark);background:transparent;border:0;border-bottom:1px solid var(--navy-2);border-radius:0;padding:16px;outline:none;-webkit-appearance:none;appearance:none}
+.form-grid select{padding-right:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23333'/%3E%3C/svg%3E") no-repeat right 10px center}
+.form-grid textarea{height:150px;resize:vertical;display:block}
+.form-grid ::placeholder{color:#999}
+.form-bottom{width:100%;display:flex;justify-content:flex-end;align-items:center;gap:18px}
+.btn-line{font:600 20px/1.7 var(--poppins);color:var(--navy-2);background:transparent;border:0;border-bottom:2px solid var(--navy-2);padding:.3em 1em;cursor:pointer}
+.btn-line:hover{background:rgba(0,0,0,.05)}
+.form-msg{width:100%;font-family:var(--poppins);color:var(--dark);margin-bottom:10px;display:none}
+.form-msg.show{display:block}
+.form-msg.error{color:#c0392b}
+.hp-field{position:absolute!important;left:-9999px!important}
+
+.footer-bottom .logo img{width:45%}
+.footer_copy{font-family:var(--poppins);color:var(--dark);text-align:center;padding-top:6.5%;font-size:13px;line-height:1.7em}
+.footer_copy a{font-size:13px}
+.footer_privacy{font-family:var(--poppins);color:var(--dark);text-align:right;padding-top:6.5%}
+.footer_privacy a,.footer_copy a{color:var(--link)}
+.social_media_foot{margin-top:5%;display:flex;justify-content:center}
+.social_media_foot a{margin:0 5px}
+.social_media_foot img{width:30px}
+
+.scroll-top{position:fixed;right:0;bottom:125px;z-index:99;width:38px;height:38px;border:0;border-radius:5px 0 0 5px;background:rgba(0,0,0,.4);color:#fff;cursor:pointer;opacity:0;visibility:hidden;transition:.4s;display:flex;align-items:center;justify-content:center}
+.scroll-top::before{content:"";width:10px;height:10px;border-top:2px solid #fff;border-left:2px solid #fff;transform:translateY(2px) rotate(45deg)}
+.scroll-top.show{opacity:1;visibility:visible}
+
+/* ---------- Reveal animation (replaces Divi fade/slide-ins) ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease-in-out,transform 1s ease-in-out}
+.reveal.fade{transform:none}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* =========================================================
+   HOME
+   ========================================================= */
+.home-hero{padding-bottom:0;margin-top:-40px}
+.home-hero .row{margin-top:0}
+.home-hero h1{font-family:var(--poppins);font-size:46px;font-weight:500;line-height:1.2em;color:var(--navy);width:75%;padding:10px;position:relative;left:10px}
+.home-hero h1 span{color:var(--blue)}
+.home-banner{padding:0}
+.home-banner img{width:100%;display:block}
+.home-about{background-image:url(/assets/images/pattern-about.png)}
+.home-about .tag-line{font:600 20px/1.2em var(--poppins);color:var(--navy);text-align:center}
+.home-about .copy{font:500 18px/1.2em var(--poppins);color:var(--dark)}
+.home-about .copy.offset{padding-top:10%}
+.home-sec-title{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.2;color:var(--navy);text-align:center;padding-bottom:20px}
+.home-wwd{background-image:url(/assets/images/pattern-wwd.jpg)}
+.home-join{background-image:url(/assets/images/pattern-contact.jpg);background-size:100% auto}
+.home-join .img-col img{width:100%}
+.home-join .text-col{padding-top:12%}
+.join_head{font-family:var(--serif);font-weight:700;font-size:42px;line-height:1.2;color:var(--navy-2);margin-bottom:20px}
+.join_bo_1{color:var(--dark);padding-right:45%;font-size:18px;font-family:var(--poppins);line-height:1.2em}
+.join_bo_2{color:var(--dark);padding-left:55%;font-size:18px;font-family:var(--poppins);line-height:1.2em}
+.home-insights .join_head{text-align:center;margin-bottom:44px}
+.home-spacer{min-height:108px}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about-hero{background-image:url(/assets/images/about211.jpg);padding:22% 0}
+.about-hero .row{max-width:1920px}
+.about-intro{background-image:url(/assets/images/pattern_about.png);padding-bottom:0}
+.about-intro .lead{font:300 18px/1.4em var(--poppins);color:var(--navy)}
+.about-intro .mission video{width:100%;display:block}
+.core-values{padding:0}
+.core-values .no-gap .col{width:50%}
+.core-values-mobile img{width:100%;display:block}
+.q-box{font-family:var(--poppins);line-height:1.3em;font-size:16px;font-weight:400;background-size:100%;background-repeat:no-repeat}
+.box_1_q{color:#fff;background-image:url(/assets/images/big-Q.jpg);padding:60% 10% 30% 10%}
+.box_2_q{color:var(--navy);background-image:url(/assets/images/big-U.jpg);padding:30% 10% 60% 10%}
+.box_3_q{color:var(--navy);background-image:url(/assets/images/big-A.jpg);padding:60% 10% 30% 10%}
+.box_4_q{color:#fff;background-image:url(/assets/images/big-D.jpg);padding:33% 10% 60% 10%}
+.leadership{padding-bottom:0}
+.leadership .caption{font:600 20px/1.19 var(--poppins);color:var(--navy)}
+.home_2_captions{font-weight:400;line-height:1.4em;font-size:18px;margin-top:10px;color:var(--dark);display:inline-block}
+.leader-bio{font:500 18px/1.4em var(--poppins);color:var(--dark)}
+.leader-bio.offset{padding-top:10%}
+.leader-photo img{width:100%;margin-bottom:2%}
+.name_Caption{font-family:var(--serif);font-size:32px;line-height:1.2em;color:var(--navy-2)}
+.name_lead{color:var(--dark);font-size:16px;font-family:var(--poppins)}
+.link_name img{display:inline-block!important;width:25px;position:relative;top:5px}
+.meet-team{background-image:url(/assets/images/meet-team.jpg);padding:0}
+.meet-team .spacer{height:275px}
+.about-video .video-wrap{position:relative;padding-top:56.25%}
+.about-video .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* =========================================================
+   WHAT WE DO
+   ========================================================= */
+.wwd-hero{background-image:url(/assets/images/banner.jpg);padding:10% 0 50%;margin-top:-40px}
+.wwd-hero h1{font-family:var(--serif);font-weight:700;font-size:74px;line-height:1.2em;color:#071216}
+.wwd-services{background-image:url(/assets/images/bg-w.jpg)}
+.wwd-services .contact_content{padding-right:0;color:#fff;line-height:1.4em}
+.wwd-services .contact_content ul{padding:0 0 18px 18px;line-height:26px}
+.wwd-services .row{align-items:flex-start}
+.wwd-services .svc-img img{width:100%;height:360px;object-fit:cover}
+.wwd-process{background-image:url(/assets/images/bg-wwd.jpg)}
+.wwd-process .row.full{padding:27px 0}
+.wwd-process .process-img img{width:100%}
+.wwd-process .process-title{margin-top:-150px;position:relative;max-width:1240px;margin-left:auto;margin-right:auto}
+.wwd-process .icon{text-align:right}
+.wwd-process .icon img{width:90px;display:inline-block}
+.wwd-process .contact_content{padding-right:0}
+.wwd-city{padding:0}
+.wwd-city img{width:100%}
+.usp_bg{background-image:url(/assets/images/bg.jpg)}
+.usp_bg .contact_content{padding-right:0}
+
+/* =========================================================
+   JOIN THE TEAM
+   ========================================================= */
+.join-hero{background-image:url(/assets/images/join-banner.jpg);padding:1% 0 15%}
+.quade-hiring-section{max-width:1200px;margin:0 auto 30px;padding:0 20px;text-align:center}
+.quade-hiring-section h2{margin:0 0 12px;font-size:42px;color:#162330;line-height:1.2}
+.quade-hiring-text{max-width:700px;margin:0 auto 30px;font-size:18px;color:#666;line-height:1.7}
+.quade-job-cards{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.quade-job-card{flex:1 1 340px;max-width:420px;padding:30px;background:#fff;border:1px solid #e5e5e5;border-top:5px solid var(--blue);border-radius:12px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:all .3s ease}
+.quade-job-card:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(0,0,0,.12)}
+.quade-job-card h3{margin:0 0 10px;color:#162330;font-size:30px}
+.quade-job-card p{margin:0 0 18px;padding:0;color:#666;font-size:16px}
+.quade-job-card span{color:var(--blue);font-weight:700;font-size:16px}
+.join-culture .title,.join-training .title{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.2em;color:#0b2c5f}
+.join-culture .title{text-align:center}
+.join-copy{font:500 18px/1.4em var(--poppins);color:var(--dark);text-align:center}
+.join-training{background-image:url(/assets/images/pattern_about.png);padding-bottom:0}
+.join-training .icon{text-align:center}
+.join-training .icon img{display:inline-block}
+.join-training .row.v-center{align-items:center}
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+.portfolio-hero{background-image:url(/assets/images/Portfolio-quade-engineering-service.webp);padding:0;height:236px;display:flex;align-items:flex-start;justify-content:center}
+.portfolio-hero .head_sage{color:#fff;padding-top:45px}
+.portfolio-grid .mod img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.portfolio-grid .cap{text-align:center}
+
+/* =========================================================
+   REQUEST FOR QUOTE
+   ========================================================= */
+.rfq{background-image:linear-gradient(160deg,#fff 0%,#dbf0fc 100%);overflow:hidden}
+.rfq .divider{position:absolute;left:0;right:0;bottom:0;height:50vw;z-index:1;transform:scale(-1,1);pointer-events:none;
+  background:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI1MHZ3IiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTAgMHYxNDBoMTI4MEwwIDB6Ii8+PC9nPjwvc3ZnPg==") 0 0/100% 50vw no-repeat}
+.rfq .row{z-index:2}
+.rfq-art{margin-bottom:-19vw;margin-left:-20vw}
+.rfq-art img{width:100%}
+.rfq h1{font:300 80px/1em var(--poppins);color:#0a2d61}
+.rfq h1 strong{font-weight:700}
+.rfq-box{background:rgba(255,255,255,.63);box-shadow:0 26px 90px -14px rgba(0,71,214,.18);padding:0!important;margin:30px auto!important;align-items:stretch}
+.rfq-box .blue{background:linear-gradient(160deg,#45b2ff 0%,#0047d6 100%);padding:18vw 60px;color:#fff;font:400 17px/1.8em var(--poppins)}
+.rfq-box .blue h2{font:300 70px/1em var(--poppins);color:#fff}
+.rfq-box .blue h2 strong{font-weight:700}
+.rfq-box .blue p{margin-top:10%}
+.rfq-box .form-col{padding:12vw 60px 12vw 0;display:flex;align-items:center}
+.form_quade{width:100%}
+.form_quade .field{width:100%;margin-bottom:30px}
+.form_quade input,.form_quade select,.form_quade textarea{font:500 14px var(--poppins);color:#001f4c;border-bottom:2px solid rgba(0,71,214,.11);padding:16px 0}
+.form_quade ::placeholder{color:#001f4c}
+.form_quade :focus::placeholder{color:transparent}
+.btn-blue{font:700 14px/1.7em var(--poppins);letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--blue);border:0;border-radius:0;padding:15px 34px;box-shadow:0 10px 30px -10px rgba(0,0,0,.3);cursor:pointer;transition:background .3s}
+.btn-blue:hover{background:#0d6ee0}
+
+/* =========================================================
+   JOB DETAIL PAGES (CAD / Project Engineer)
+   ========================================================= */
+.page-title{width:100%;margin:25px auto 35px;text-align:center;font:700 42px/1.2 'Open Sans',Arial,sans-serif;color:var(--dark);padding-bottom:10px}
+.job-main{padding-top:58px}
+.quade-job-detail,.quade-job-detail *{box-sizing:border-box}
+.quade-job-detail{width:100%;padding:0 15px 70px;background:#f5f6f8}
+.quade-job-hero{width:92%;max-width:1240px;margin:0 auto 30px;padding:55px 50px;background:#182430;border-radius:0 0 16px 16px;color:#fff}
+.quade-job-company{display:block;margin-bottom:12px;color:var(--blue);font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.quade-job-hero .job-title{margin:0 0 20px;padding-bottom:10px;color:#fff;font-size:52px;line-height:1.2;font-weight:500}
+.quade-job-meta{display:flex;flex-wrap:wrap;gap:15px 30px;color:#e9edf2;font-size:16px;line-height:1.7;margin-bottom:20px}
+.quade-job-layout{width:92%;max-width:1240px;margin:0 auto}
+.quade-job-left{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:stretch}
+.quade-job-block{display:flex;flex-direction:column;width:48.8%;min-height:280px;margin:0 0 24px;padding:32px 34px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.quade-small-block{min-height:220px}
+.quade-job-block h2{margin:0 0 18px;color:#162330;font-size:27px;line-height:1.3}
+.quade-job-block p,.quade-job-block li{color:#5f6772;font-size:16px;line-height:1.7}
+.quade-job-block ul{margin:0;padding:0 0 0 22px}
+.quade-job-block li{margin-bottom:12px}
+.quade-job-block li:last-child{margin-bottom:0}
+.quade-job-block li::marker{color:var(--blue)}
+.quade-eligibility-block,.quade-growth-block{border-left:5px solid var(--blue)}
+.quade-growth-path{display:flex;flex-wrap:nowrap;align-items:center;margin-top:15px;gap:6px;white-space:nowrap}
+.quade-growth-path span{display:inline-flex;align-items:center;justify-content:center;padding:9px 10px;background:#f4f5f7;border-radius:5px;color:#263440;font-size:12px;font-weight:600}
+.quade-growth-path b{color:var(--blue);font-size:17px;line-height:1}
+.quade-bottom-apply{display:flex;margin-top:18px;justify-content:center}
+.quade-job-main-btn{display:inline-flex;align-items:center;justify-content:center;width:160px;height:48px;background:#182430;border:2px solid #182430;border-radius:6px;color:#fff!important;font-size:15px;font-weight:600;transition:background .3s,border-color .3s,transform .3s}
+.quade-job-hero .quade-job-main-btn{border-color:#182430}
+.quade-job-main-btn:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+
+/* =========================================================
+   BLOG (single post)
+   ========================================================= */
+.post-main{padding-top:58px}
+.post-wrap{max-width:1080px;width:80%;margin:0 auto;display:flex;position:relative}
+.post-wrap::before{content:"";position:absolute;top:0;bottom:0;left:79.125%;width:1px;background:#e2e2e2}
+.post-content{width:79.125%;padding-right:5.5%;padding-bottom:50px}
+.post-sidebar{width:20.875%;padding-left:30px}
+.post-content .entry-title{font-size:30px;line-height:1.2;color:var(--dark);font-weight:500;padding-bottom:10px}
+.post-meta{margin-bottom:6px;padding-bottom:0;font-size:14px}
+.post-meta a{color:var(--text)}
+.post-body{margin-top:24px}
+.post-body .feat img{width:100%}
+.post-body h4{color:#0a0a0a;font-size:18px;line-height:1.3;margin-top:10px}
+.post-body p,.post-body li{color:#0a0a0a}
+.post-body ul ul{padding-bottom:0}
+.post-body .block{padding:27px 0}
+.post-body .block.half{width:47.25%}
+.post-sidebar .widget{margin-bottom:40px;font-size:14px}
+.post-sidebar h2{font-size:18px;color:var(--dark);font-weight:500;padding-bottom:10px}
+.post-sidebar ul{list-style:none;padding:0}
+.post-sidebar li{margin-bottom:.5em;line-height:1.7}
+.post-sidebar li a{color:var(--text)}
+.post-sidebar li a:hover{color:var(--link)}
+.search-form{display:flex;flex-wrap:wrap}
+.search-form label{display:block;width:100%;font-weight:700;margin-bottom:6px}
+.search-form input{flex:1;min-width:0;border:1px solid #ddd;padding:6px 8px}
+.search-form button{background:#32373c;color:#fff;border:0;padding:6px 12px;cursor:pointer}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:980px){
+  :root{--header-h:80px}
+  #main-header .container{padding:0 15px;height:var(--header-h)}
+  #main-header.is-fixed .container{height:var(--header-h)}
+  .logo_container img,#main-header.is-fixed .logo_container img{max-height:54px}
+  .mobile-toggle{display:block}
+  #top-menu-nav{position:absolute;top:100%;left:0;right:0;background:#fff;border-top:3px solid var(--link);box-shadow:0 2px 5px rgba(0,0,0,.1);display:none;padding:5%}
+  .menu-open #top-menu-nav{display:block}
+  #top-menu{flex-direction:column;align-items:stretch}
+  #top-menu li{padding:0}
+  #top-menu a{padding:10px 5%;border-bottom:1px solid rgba(0,0,0,.03)}
+  #top-menu li.btn a{margin:5px 0;padding:10px 5%}
+
+  .section{padding:50px 15px}
+  .row{padding:30px 0;flex-wrap:wrap;width:100%}
+  .row>.col{width:100%!important}
+  .row>.col:not(:last-child){margin-bottom:30px}
+  .row.no-gap>.col:not(:last-child){margin-bottom:0}
+  .row.rev-mobile{flex-direction:column-reverse}
+  .row.rev-mobile>.col:not(:last-child){margin-bottom:0}
+  .row.rev-mobile>.col:last-child{margin-bottom:30px}
+  .only-mobile{display:block!important}
+  .only-desktop,.only-desktop-flex{display:none!important}
+
+  .home-hero h1{font-size:22px;width:100%;left:0}
+  .home-hero .row{padding-left:15px;padding-right:15px}
+  .home-banner,.home-hero{padding-left:0;padding-right:0;padding-bottom:0}
+  .home-banner,.wwd-city,.core-values,.meet-team{padding-top:0;padding-bottom:0}
+  .home-join .text-col{padding-top:10%}
+  .join_bo_1,.join_bo_2{padding:0;margin-bottom:1em}
+  .contact_content,.footer-contact .contact_content{padding-right:0}
+  .footer_copy,.footer_privacy{padding-top:0}
+  .footer-bottom .logo img{width:auto;max-width:45%}
+
+  .wwd-hero{padding:10% 15px 70%}
+  .wwd-hero h1{font-size:52px}
+  .wwd-services .svc-img img{height:auto}
+  .wwd-process .icon{text-align:left}
+
+  .core-values .col{width:100%}
+  .leader-bio.offset{padding-top:0}
+
+  .rfq-art{margin:0;max-width:180px}
+  .rfq-art img{width:100%}
+  .rfq h1{font-size:40px}
+  .rfq-box .blue{padding:40px 30px}
+  .rfq-box .blue h2{font-size:60px}
+  .rfq-box .form-col{padding:0 30px 40px}
+
+  .post-wrap{width:90%;display:block}
+  .post-wrap::before{display:none}
+  .post-content,.post-sidebar{width:100%;padding:0}
+  .post-body .block.half{width:100%}
+}
+@media (max-width:991px){
+  .quade-job-hero,.quade-job-layout{width:94%}
+  .quade-job-hero{padding:50px 35px}
+  .quade-job-block{width:48.5%;padding:26px}
+  .quade-growth-path span{padding:8px 7px;font-size:11px}
+  .quade-growth-path b{font-size:15px}
+}
+@media (max-width:767px){
+  .home-hero h1{font-size:18px}
+  .home-about .copy.offset{padding-top:0}
+  .sage-title,.home-sec-title,.contact_header,.join_head{font-size:32px}
+  .head_sage{font-size:44px}
+  .wwd-hero{padding:10% 15px 90%}
+  .wwd-hero h1{font-size:48px}
+  .wwd-process .process-title{margin-top:-50px}
+  .rfq h1,.rfq-box .blue h2{font-size:36px}
+  .rfq-box .blue{font-size:14px;padding:30px 20px}
+  .rfq-box .form-col{padding:0 20px 30px}
+  .footer_copy p,.footer_privacy p{text-align:left}
+  .form-grid .field.half{width:100%}
+  .quade-hiring-section{margin:0 auto 20px;padding:0 15px}
+  .quade-hiring-section h2{font-size:32px}
+  .quade-hiring-text{margin-bottom:25px;font-size:16px}
+  .quade-job-card{max-width:100%;padding:25px}
+  .page-title{font-size:30px}
+  .quade-job-detail{padding:0 12px 45px}
+  .quade-job-hero,.quade-job-layout{width:100%}
+  .quade-job-hero{margin-bottom:25px;padding:45px 25px}
+  .quade-job-hero .job-title{font-size:36px}
+  .quade-job-meta{flex-direction:column;gap:8px}
+  .quade-job-left{display:block}
+  .quade-job-block,.quade-small-block{width:100%;min-height:0;margin-bottom:20px;padding:24px}
+  .quade-job-block h2{font-size:24px}
+  .quade-growth-path{flex-direction:column;align-items:flex-start;white-space:normal}
+  .quade-growth-path span{font-size:13px}
+  .quade-growth-path b{margin-left:25px;transform:rotate(90deg)}
+  .quade-bottom-apply .quade-job-main-btn{width:100%}
+}
+
+/* The old theme gave these big headings a 24px line box on desktop */
+@media (min-width:981px){
+  .home-sec-title,.join_head,.sage-title,.head_sage,#contact_us .contact_header{line-height:24px}
+}
