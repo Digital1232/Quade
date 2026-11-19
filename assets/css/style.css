@@ -456,3 +456,11 @@ ol{margin:0;padding:0 0 23px 0;line-height:26px;list-style-position:inside}
 @media (min-width:981px){
   .home-sec-title,.join_head,.sage-title,.head_sage,#contact_us .contact_header{line-height:24px}
 }
+
+/* 404 page */
+.notfound{padding:120px 0 140px;text-align:center}
+.notfound h1{font-family:var(--serif);font-weight:700;font-size:56px;line-height:1.2em;color:var(--navy);margin-bottom:20px}
+.notfound p{font-family:var(--poppins);font-size:18px;color:#333}
+.notfound-links{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;align-items:center;margin-top:36px}
+.notfound-links a:not(.btn-blue){color:var(--link)}
+@media (max-width:767px){.notfound{padding:80px 15px}.notfound h1{font-size:40px}}

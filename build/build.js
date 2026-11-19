@@ -15,6 +15,7 @@
  *   nav: about            (home | about | wwd | join | portfolio | quote | none)
  *   footer: yes           (yes = include the Contact Us + footer section)
  *   og_type: article
+ *   sitemap: no          (leave the page out of sitemap.xml, e.g. the 404 page)
  *   -->
  */
 const fs = require('fs');
@@ -117,9 +118,10 @@ ${partials.scripts}
 // sitemap.xml
 const urls = files.map((f) => {
   const { meta } = parse(path.join(pagesDir, f));
+  if (meta.sitemap === 'no') return null;
   const p = meta.path === '/' || !meta.path ? '' : meta.path.replace(/^\/|\/$/g, '') + '/';
   return `  <url><loc>${SITE}/${p}</loc></url>`;
 });
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`);
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.filter(Boolean).join('\n')}\n</urlset>\n`);
 console.log('built sitemap.xml');

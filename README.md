@@ -6,7 +6,7 @@ Same pages, same URLs, same images and text.
 ## What to upload to the hosting (public_html)
 
 ```
-index.html
+index.html           .htaccess            404/
 about-us/            what-we-do/          join-the-team/
 our-portfolio/       request-for-quote/   cad-engineer/
 project-engineer/    2026/                (blog post)
