@@ -3,6 +3,8 @@ const root=path.resolve(__dirname,'..');
 const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'application/javascript','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.mp4':'video/mp4','.xml':'application/xml','.svg':'image/svg+xml'};
 http.createServer((req,res)=>{
   let p=decodeURIComponent(req.url.split('?')[0]);
+  // lets the cPanel tab (https://quadengg.com:2083) fetch the upload zip from this local server
+  if(p==='/quade-upload.zip'){res.setHeader('Access-Control-Allow-Origin','*');res.setHeader('Access-Control-Allow-Private-Network','true');if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Methods':'GET','Access-Control-Allow-Headers':'*'});return res.end();}}
   if(req.method==='POST'&&p==='/contact.php'){res.writeHead(200,{'Content-Type':'application/json'});return res.end('{"ok":true}');}
   let f=path.join(root,p); if(!f.startsWith(root)){res.writeHead(403);return res.end();}
   if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');

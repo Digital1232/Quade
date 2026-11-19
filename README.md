@@ -12,6 +12,7 @@ our-portfolio/       request-for-quote/   cad-engineer/
 project-engineer/    2026/                (blog post)
 assets/              (css, js, images, video)
 contact.php          (contact / quote form mailer)
+404.php              (sends the 404 page with a real 404 status)
 sitemap.xml
 robots.txt
 ```

@@ -25,6 +25,13 @@ RewriteRule ^contact-us/?$ /#contact_us [R=301,L,NE]
 
 # Block the old WordPress admin / xmlrpc paths (they no longer exist)
 RewriteRule ^(wp-admin|wp-login\.php|xmlrpc\.php) - [R=404,L]
+
+# Any other missing page on quadengg.com -> custom 404 page (404.php sends the 404 status).
+# Limited to the main domain so portfolio.quadengg.com keeps its own 404 page.
+RewriteCond %{HTTP_HOST} ^(www\.)?quadengg\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /404.php [L]
 </IfModule>
 
 # Browser caching for images, video, css, js
