@@ -56,5 +56,8 @@ $headers  = "From: QUADE Website <$FROM_EMAIL>\r\n";
 $headers .= "Reply-To: $name <$email>\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-$sent = @mail($TO_EMAIL, $SUBJECT, $body, $headers, '-f' . $FROM_EMAIL);
+// No '-f' envelope sender: quadengg.com's SPF only allows Microsoft 365, so mail
+// bounced as no-reply@quadengg.com from this GoDaddy server is rejected by Gmail.
+// The host's default envelope sender passes GoDaddy's own SPF.
+$sent = @mail($TO_EMAIL, $SUBJECT, $body, $headers);
 respond((bool) $sent, $sent ? null : 'Sorry, your message could not be sent. Please email admin@quadengg.com.');
